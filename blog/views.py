@@ -20,7 +20,7 @@ posts = [
         ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."""
     },
     {
-        "slug": "hike-in-the-mountains",
+        "slug": "catto",
         "image": "woods.jpg",
         "author": "Gabi",
         "date": date(2021, 6, 21),
@@ -30,7 +30,7 @@ posts = [
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"""
     },
     {
-        "slug": "hike-in-the-mountains",
+        "slug": "animalo",
         "image": "coding.jpg",
         "author": "Gabi",
         "date": date(2021, 5, 21),
@@ -72,6 +72,7 @@ def all_posts(request):
 
 
 def single_post(request, slug):
-    return render(request, 'blog/post-detail.html')
+    identified_post = next(post for post in posts if post['slug'] == slug)
+    return render(request, 'blog/post-detail.html', {"post": identified_post})
 
 
